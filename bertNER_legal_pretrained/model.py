@@ -58,7 +58,7 @@ class Model(object):
         tvars = tf.trainable_variables()
         # 加载BERT模型
         (assignment_map, initialized_variable_names) = modeling.get_assignment_map_from_checkpoint(tvars,
-                                                                                                   init_checkpoint)
+                                                                                                 init_checkpoint)
         tf.train.init_from_checkpoint(init_checkpoint, assignment_map)
         print("**** Trainable Variables ****")
         # 打印加载模型的参数
