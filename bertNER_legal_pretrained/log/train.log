@@ -1,11 +1,13 @@
-2021-04-11 16:50:00,600 - log/train.log - INFO - num_tags       :	16
-2021-04-11 16:50:00,601 - log/train.log - INFO - lstm_dim       :	200
-2021-04-11 16:50:00,601 - log/train.log - INFO - batch_size     :	32
-2021-04-11 16:50:00,601 - log/train.log - INFO - max_seq_len    :	128
-2021-04-11 16:50:00,601 - log/train.log - INFO - clip           :	5.0
-2021-04-11 16:50:00,601 - log/train.log - INFO - dropout_keep   :	0.5
-2021-04-11 16:50:00,601 - log/train.log - INFO - optimizer      :	adam
-2021-04-11 16:50:00,601 - log/train.log - INFO - lr             :	0.001
-2021-04-11 16:50:00,601 - log/train.log - INFO - tag_schema     :	iob
-2021-04-11 16:50:00,601 - log/train.log - INFO - zeros          :	False
-2021-04-11 16:50:00,602 - log/train.log - INFO - lower          :	True
+2021-04-12 19:06:14,380 - log/train.log - INFO - num_tags       :	16
+2021-04-12 19:06:14,380 - log/train.log - INFO - lstm_dim       :	200
+2021-04-12 19:06:14,380 - log/train.log - INFO - batch_size     :	32
+2021-04-12 19:06:14,381 - log/train.log - INFO - max_seq_len    :	128
+2021-04-12 19:06:14,381 - log/train.log - INFO - clip           :	5.0
+2021-04-12 19:06:14,381 - log/train.log - INFO - dropout_keep   :	0.5
+2021-04-12 19:06:14,381 - log/train.log - INFO - optimizer      :	adam
+2021-04-12 19:06:14,381 - log/train.log - INFO - lr             :	0.001
+2021-04-12 19:06:14,381 - log/train.log - INFO - tag_schema     :	iob
+2021-04-12 19:06:14,381 - log/train.log - INFO - zeros          :	False
+2021-04-12 19:06:14,381 - log/train.log - INFO - lower          :	True
+2021-04-12 19:06:25,786 - log/train.log - INFO - Created model with fresh parameters.
+2021-04-12 19:06:29,735 - log/train.log - INFO - start training
