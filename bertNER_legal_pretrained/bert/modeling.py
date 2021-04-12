@@ -169,7 +169,9 @@ class BertModel(object):
     if token_type_ids is None:
       token_type_ids = tf.zeros(shape=[batch_size, seq_length], dtype=tf.int32)
 
-    with tf.variable_scope(scope, default_name="bert"):
+    # vanellope: valueError : Assignment map with scope only name electra ...should map to scope electra
+    #change  default_name="bert" to "electra"
+    with tf.variable_scope(scope, default_name="electra"):
       with tf.variable_scope("embeddings"):
         # Perform embedding lookup on the word ids.
         (self.embedding_output, self.embedding_table) = embedding_lookup(
@@ -319,21 +321,26 @@ def get_assignment_map_from_checkpoint(tvars, init_checkpoint):
   """Compute the union of the current variables and checkpoint variables."""
   assignment_map = {}
   initialized_variable_names = {}
-
+  print("当前的init_checkpoint是", init_checkpoint)
   name_to_variable = collections.OrderedDict()
   for var in tvars:
     name = var.name
     m = re.match("^(.*):\\d+$", name)
     if m is not None:
       name = m.group(1)
+      name = name.replace("bert", "electra") #反向修改原始bert的tvars，以便后续在electra ckpt找到tensor vanellope
     name_to_variable[name] = var
+    print("name_to_variable[name]:",name_to_variable[name])
 
   init_vars = tf.train.list_variables(init_checkpoint)
 
+  #print("从tf.train.list_var(init_checkpoint)提取出来的init_vars:", init_vars)
   assignment_map = collections.OrderedDict()
   for x in init_vars:
-    (name, var) = (x[0], x[1])
+    (name, var) = (x[0], x[1]) # name : electra/encoder/xxx
+    #name = name.replace("electra","bert") # init_vars的electra变量名跟bert前缀不同，手动转换一下
     if name not in name_to_variable:
+      print("name:", name, "not in name_to_variable")
       continue
     assignment_map[name] = name
     initialized_variable_names[name] = 1
