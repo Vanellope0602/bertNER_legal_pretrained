@@ -55,16 +55,20 @@ class Model(object):
         init_checkpoint = "legal_electra_base/legal_electra_base.ckpt"
         print("使用legal_electra_base.ckpt进行bert模型初始化")
         # 获取模型中所有的训练参数。
-        tvars = tf.trainable_variables()
+        tvars = tf.trainable_variables() #原本bert/xxx的变量
+        print("获取模型中所有的训练参数")
+        print(tvars)
         # 加载BERT模型
         (assignment_map, initialized_variable_names) = modeling.get_assignment_map_from_checkpoint(tvars,
-                                                                                                   init_checkpoint)
+                                                                                                 init_checkpoint)
         tf.train.init_from_checkpoint(init_checkpoint, assignment_map)
         print("**** Trainable Variables ****")
         print("initialized variable names")
         print(initialized_variable_names)
         # 打印加载模型的参数
         train_vars = []
+        print("initialized_variable_names:")
+        print(initialized_variable_names)
         for var in tvars:
             init_string = ""
             if var.name in initialized_variable_names:
