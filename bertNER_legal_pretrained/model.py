@@ -63,6 +63,8 @@ class Model(object):
                                                                                                  init_checkpoint)
         tf.train.init_from_checkpoint(init_checkpoint, assignment_map)
         print("**** Trainable Variables ****")
+        print("initialized variable names")
+        print(initialized_variable_names)
         # 打印加载模型的参数
         train_vars = []
         print("initialized_variable_names:")
