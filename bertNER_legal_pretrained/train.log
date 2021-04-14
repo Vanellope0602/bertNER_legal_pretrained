@@ -29,3 +29,4 @@
 2021-04-10 19:47:03,006 - train.log - INFO - Reading model parameters from ckpt/ner.ckpt-800
 2021-04-10 20:00:01,638 - train.log - INFO - Reading model parameters from ckpt/ner.ckpt-800
 2021-04-10 20:03:22,307 - train.log - INFO - Reading model parameters from ckpt/ner.ckpt-800
+2021-04-13 16:25:48,525 - train.log - INFO - Reading model parameters from ckpt/ner.ckpt-528
