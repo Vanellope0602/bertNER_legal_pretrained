@@ -25,10 +25,11 @@ class PoolingStrategy(Enum):
 
 file_path = os.path.dirname(os.path.dirname(__file__))
 
-model_dir = os.path.join(file_path, 'legal_electra_base')
+# Vanellope change model_dir, config name, ckpt_name 2021.4.20
+model_dir = os.path.join(file_path, 'legal_electra_large')
 # model_dir = os.path.join(file_path, 'chinese_wwm_ext_L-12_H-768_A-12')
-config_name = os.path.join(model_dir, 'bert_config.json')
-ckpt_name = os.path.join(model_dir, 'legal_electra_base.ckpt')
+config_name = os.path.join(model_dir, 'large_discriminator_config.json')
+ckpt_name = os.path.join(model_dir, 'electra_180g_large.ckpt')
 vocab_file = os.path.join(model_dir, 'vocab.txt')
 
 # the maximum length of a sequence,Sequences larger than max_seq_len will be truncated on the left side. Thus, if you

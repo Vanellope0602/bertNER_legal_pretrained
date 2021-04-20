@@ -5,7 +5,7 @@ import codecs
 from bert import tokenization
 from utils import convert_single_example
 
-tokenizer = tokenization.FullTokenizer(vocab_file='legal_electra_base/vocab.txt',
+tokenizer = tokenization.FullTokenizer(vocab_file='legal_electra_large/vocab.txt',
                                        do_lower_case=True)
 
 from data_utils import create_dico, create_mapping, zero_digits
