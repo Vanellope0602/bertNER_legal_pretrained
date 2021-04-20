@@ -52,8 +52,8 @@ class Model(object):
         self.loss = self.loss_layer(self.logits, self.lengths)
 
         # bert模型参数初始化的地方
-        init_checkpoint = "legal_electra_base/legal_electra_base.ckpt"
-        print("使用legal_electra_base.ckpt进行bert模型初始化")
+        init_checkpoint = "legal_electra_large/electra_180g_large.ckpt"
+        print("electra_180g_large.ckpt进行模型初始化")
         # 获取模型中所有的训练参数。
         tvars = tf.trainable_variables() #原本bert/xxx的变量
         print("获取模型中所有的训练参数")
@@ -98,7 +98,8 @@ class Model(object):
 
     def bert_embedding(self):
         # load bert embedding
-        bert_config = modeling.BertConfig.from_json_file("legal_electra_base/bert_config.json")  # 配置文件地址。
+        # Vanellope 改成electra large json配置 2021.4.20
+        bert_config = modeling.BertConfig.from_json_file("legal_electra_large/large_discriminator_config.json")  # 配置文件地址。
         model = modeling.BertModel(
             config=bert_config,
             is_training=True,

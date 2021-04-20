@@ -170,7 +170,7 @@ class BertModel(object):
       token_type_ids = tf.zeros(shape=[batch_size, seq_length], dtype=tf.int32)
 
     # vanellope: valueError : Assignment map with scope only name electra ...should map to scope electra
-    #change  default_name="bert" to "electra", then to "generator"
+    #change  default_name="bert" to "electra"
     with tf.variable_scope(scope, default_name="electra"):
       with tf.variable_scope("embeddings"):
         # Perform embedding lookup on the word ids.
