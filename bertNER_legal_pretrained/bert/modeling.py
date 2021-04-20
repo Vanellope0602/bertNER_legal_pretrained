@@ -170,7 +170,7 @@ class BertModel(object):
       token_type_ids = tf.zeros(shape=[batch_size, seq_length], dtype=tf.int32)
 
     # vanellope: valueError : Assignment map with scope only name electra ...should map to scope electra
-    #change  default_name="bert" to "electra"
+    #change  default_name="bert" to "electra", then to "generator"
     with tf.variable_scope(scope, default_name="electra"):
       with tf.variable_scope("embeddings"):
         # Perform embedding lookup on the word ids.
@@ -327,8 +327,8 @@ def get_assignment_map_from_checkpoint(tvars, init_checkpoint):
     name = var.name
     m = re.match("^(.*):\\d+$", name)
     if m is not None:
-      name = m.group(1)
-      name = name.replace("bert", "electra") #反向修改原始bert的tvars，以便后续在electra ckpt找到tensor vanellope
+      name = m.group(1)     # 原本是bert开头
+      #name = name.replace("bert", "generator") #反向修改原始bert的tvars，以便后续在electra ckpt找到tensor vanellope
     name_to_variable[name] = var
     print("name_to_variable[name]:",name_to_variable[name])
 
